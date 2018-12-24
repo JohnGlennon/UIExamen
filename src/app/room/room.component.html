@@ -1,0 +1,19 @@
+<div class="room" [id]="pickId()"
+     [ngStyle]="setBackgroundColor()"
+     [ngStyle]="setWidth()"
+     [ngStyle]="setHeight()">
+  <section class="roominfo">
+    <div class="name" *ngIf="nameChecked">{{rooms[currentRoomIndex].name}}</div>
+    <div class="type" *ngIf="typeChecked">
+      <img [src]="rooms[currentRoomIndex].url" [alt]="rooms[currentRoomIndex].type">
+    </div>
+    <div class="capacity" *ngIf="capacityChecked">
+      <img src="http://www.clker.com/cliparts/b/f/d/3/k/d/man-figure-symbol-hi.png" alt="capacitysymbol">
+      <div>{{rooms[currentRoomIndex].capacity}}</div>
+    </div>
+    <div class="beamer" *ngIf="rooms[currentRoomIndex].beamer && beamerChecked">
+      <img src="https://cdn0.iconfinder.com/data/icons/thin-movies/24/thin-0594_beamer_presentation_projector-512.png"
+           alt="beamersymbol">
+    </div>
+  </section>
+</div>

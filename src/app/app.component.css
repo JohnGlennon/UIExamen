@@ -1,0 +1,63 @@
+#viewchoice {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  font-size: 1.5rem;
+  grid-area: toolbar;
+  float: left;
+}
+
+#listoption {
+  margin-right: 2em;
+}
+
+/*button {*/
+  /*width: 75px;*/
+  /*height: 75px;*/
+  /*margin: 20px;*/
+  /*font-size: 2rem;*/
+  /*border-radius: 20%;*/
+  /*border: 2px solid black;*/
+  /*text-align: center;*/
+  /*background-color: #6293ff;*/
+/*}*/
+
+/*button:hover {*/
+  /*border: 2px solid #e8e800;*/
+/*}*/
+
+/*button:active {*/
+  /*border: 2px solid red;*/
+/*}*/
+
+/*#options {*/
+  /*position: absolute;*/
+  /*display: inline-block;*/
+  /*grid-area: toolbar;*/
+  /*right: 20%;*/
+/*}*/
+
+#mainsection {
+  display: flex;
+  grid-area: rooms;
+}
+
+#rooms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 100px;
+}
+
+#filter {
+  margin: 100px;
+}
+
+td input {
+  margin-left: 50px;
+}
