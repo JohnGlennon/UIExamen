@@ -9,6 +9,7 @@ export class RoomComponent implements OnInit {
 
   @Input() rooms;
   @Input() currentRoomIndex;
+  @Input() currentFloor;
   @Input() listChecked;
   @Input() nameChecked;
   @Input() typeChecked;
@@ -32,15 +33,11 @@ export class RoomComponent implements OnInit {
     }
   }
 
-  setBackgroundColor(): Object {
-    return {'background-color': this.occupiedChecked ? this.rooms[this.currentRoomIndex].occupied ? '#ff8800' : '#09ff2a' : 'white'};
-  }
-
-  setWidth(): Object {
-    return {'width': this.listChecked ? '50rem' : this.rooms[this.currentRoomIndex].width};
-  }
-
-  setHeight(): Object {
-    return {'height': this.listChecked ? '100px' : this.rooms[this.currentRoomIndex].height};
+  setStyle(): Object {
+    return {
+      'background-color': this.occupiedChecked ? this.rooms[this.currentRoomIndex].occupied ? '#ff8800' : '#09ff2a' : 'white',
+      'width': this.listChecked ? '40rem' : this.rooms[this.currentRoomIndex].width * 10 + 'px',
+      'height': this.listChecked ? '100px' : this.rooms[this.currentRoomIndex].height * 10 + 'px'
+    };
   }
 }

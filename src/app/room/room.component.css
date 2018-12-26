@@ -4,32 +4,46 @@
   grid-area: rooms;
 }
 
+.room:hover {
+  border: 2px solid black;
+}
+
+.room:active {
+  border: 2px solid red;
+}
+
 /*#rectangle {*/
   /*width: 50rem;*/
   /*height: 100px;*/
 /*}*/
+
+#shape .roominfo {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: start;
+}
 
 img {
   max-width: 30px;
   max-height: 50px;
 }
 
-.roominfo {
+#rectangle .roominfo {
   display: inline-flex;
   align-items: center;
   margin-top: 10px;
 }
 
 section div, section img {
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
-.name {
+#rectangle .name {
   font-size: 2rem;
   max-width: 50px;
 }
 
-.capacity div {
+#rectangle .capacity div {
   font-size: 1.5rem;
 }

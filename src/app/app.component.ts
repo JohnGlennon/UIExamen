@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,7 @@ export class AppComponent implements OnInit {
   private roomSet = [
     {
       name: 'GR001',
+      floor: 0,
       type: 'Auditorium',
       url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Auditorium_icon.svg/1000px-Auditorium_icon.svg.png',
       capacity: 300,
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'GR411',
+      floor: 4,
       type: 'Cafetaria',
       url: 'https://cdn.onlinewebfonts.com/svg/img_180524.png',
       capacity: 200,
@@ -33,6 +35,7 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'GR107',
+      floor: 1,
       type: 'Classroom',
       url: 'http://www.icone-png.com/png/54/53749.png',
       capacity: 75,
@@ -45,6 +48,7 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'GR315',
+      floor: 3,
       type: 'Office',
       url: 'http://www.newdesignfile.com/postpic/2010/04/black-office-worker-icon_76222.png',
       capacity: 20,
@@ -56,6 +60,7 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'GR501',
+      floor: 5,
       type: 'Classroom',
       url: 'http://www.icone-png.com/png/54/53749.png',
       capacity: 50,
@@ -68,6 +73,7 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'GR511',
+      floor: 5,
       type: 'Classroom',
       url: 'http://www.icone-png.com/png/54/53749.png',
       capacity: 100,
@@ -80,42 +86,46 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'GR208',
+      floor: 2,
       type: 'Meetingroom',
       url: 'https://cdn1.iconfinder.com/data/icons/business-proposal-sales-idea-presentation/520/appointment-meeting-012-512.png',
       capacity: 25,
       beamer: false,
       occupied: true,
-      width: 10,
-      height: 10,
+      width: 30,
+      height: 30,
       x: 700,
       y: 300
     },
     {
       name: 'GR314',
+      floor: 3,
       type: 'Classroom',
       url: 'http://www.icone-png.com/png/54/53749.png',
       capacity: 100,
       beamer: true,
       occupied: true,
       width: 20,
-      height: 20,
+      height: 30,
       x: 600,
       y: 600
     },
     {
       name: 'GR406',
+      floor: 4,
       type: 'Classroom',
       url: 'http://www.icone-png.com/png/54/53749.png',
       capacity: 50,
       beamer: false,
       occupied: false,
       width: 15,
-      height: 15,
+      height: 30,
       x: 700,
       y: 200
     },
     {
       name: 'GR101',
+      floor: 1,
       type: 'Cafetaria',
       url: 'https://cdn.onlinewebfonts.com/svg/img_180524.png',
       capacity: 150,
@@ -128,6 +138,7 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'The Floor',
+      floor: 0,
       type: 'Studyarea',
       url: 'https://www.walton.k12.ga.us/ArticleImages/20183293717201_image.png',
       capacity: 200,
@@ -143,14 +154,20 @@ export class AppComponent implements OnInit {
   private rooms = [];
   // roomIndex = 0;
 
-  listChecked;
+  public currentFloor = 0;
 
-  nameChecked;
-  typeChecked;
-  capacityChecked;
-  beamerChecked;
-  occupiedChecked;
-  crowdChecked;
+  public listChecked;
+
+  public roomClicked;
+
+  public nameChecked;
+  public typeChecked;
+  public capacityChecked;
+  public beamerChecked;
+  public occupiedChecked;
+  public crowdChecked;
+
+  @Input() crowd;
 
   ngOnInit(): void {
     for (let i = 0; i < this.roomSet.length; i++) {
@@ -158,6 +175,8 @@ export class AppComponent implements OnInit {
     }
 
     this.listChecked = true;
+
+    this.roomClicked = false;
 
     this.nameChecked = true;
     this.typeChecked = true;
@@ -178,6 +197,22 @@ export class AppComponent implements OnInit {
   //   this.rooms.pop();
   //   this.roomIndex--;
   // }
+
+  floorDown(): void {
+    if (this.currentFloor > 0) {
+      this.currentFloor--;
+    }
+  }
+
+  floorUp(): void {
+    if (this.currentFloor < 5) {
+      this.currentFloor++;
+    }
+  }
+
+  setRoomClicked(): void {
+    this.roomClicked = !this.roomClicked;
+  }
 
   changeListChecked(): void {
     if (!this.listChecked) {

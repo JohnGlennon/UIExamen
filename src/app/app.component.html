@@ -5,16 +5,21 @@
   <div id="planoption">Plan</div>
 </form>
 
-<!--<section id="options">-->
-  <!--<button (click)="remove()">-</button>-->
-  <!--<button (click)="add()">+</button>-->
-<!--</section>-->
+<section id="navigate">
+  <button (click)="floorDown()"><img
+    src="http://img1.wikia.nocookie.net/__cb20131015141652/community-sitcom/images/7/7b/Arrow_down.png"
+    alt="arrow down"></button>
+  <button (click)="floorUp()"><img
+    src="http://vignette1.wikia.nocookie.net/community-sitcom/images/4/46/Arrow_up.png/revision/latest?cb=20131015142243"
+    alt="arrow up"></button>
+</section>
 
 <section id="mainsection">
   <section id="rooms">
-    <app-room *ngFor="let room of rooms; index as i"
+    <app-room (click)="setRoomClicked()" *ngFor="let room of rooms; index as i"
               [rooms]="roomSet"
               [currentRoomIndex]="i"
+              [currentFloor]="currentFloor"
               [listChecked]="listChecked"
               [nameChecked]="nameChecked"
               [typeChecked]="typeChecked"
@@ -23,6 +28,20 @@
               [occupiedChecked]="occupiedChecked"
               [crowdChecked]="crowdChecked">
     </app-room>
+  </section>
+
+  <section id="settings" *ngIf="roomClicked">
+    <div id="crowdSetting">
+      <label for="crowdSlider"><strong>Crowd</strong></label>
+      <input type="range" name="crowd" id="crowdSlider" [(ngModel)]="crowd" min="10" max="1000"/>
+    </div>
+    <div id="reservationSetting">
+      <h4>Reservation</h4>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+    </div>
+    <button id="details">Details</button>
   </section>
 
   <section id="filter" *ngIf="rooms.length > 0">

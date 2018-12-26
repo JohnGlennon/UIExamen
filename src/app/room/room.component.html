@@ -1,7 +1,5 @@
-<div class="room" [id]="pickId()"
-     [ngStyle]="setBackgroundColor()"
-     [ngStyle]="setWidth()"
-     [ngStyle]="setHeight()">
+<div class="room" [id]="pickId()" *ngIf="currentFloor==rooms[currentRoomIndex].floor"
+     [ngStyle]="setStyle()">
   <section class="roominfo">
     <div class="name" *ngIf="nameChecked">{{rooms[currentRoomIndex].name}}</div>
     <div class="type" *ngIf="typeChecked">
