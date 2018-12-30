@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
       capacity: 75,
       beamer: true,
       occupied: true,
-      width: 10,
+      width: 20,
       height: 20,
       x: 500,
       y: 400
@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
       url: 'http://www.newdesignfile.com/postpic/2010/04/black-office-worker-icon_76222.png',
       capacity: 20,
       beamer: false,
-      width: 10,
+      width: 20,
       height: 20,
       x: 0,
       y: 0
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
       capacity: 50,
       beamer: true,
       occupied: true,
-      width: 20,
+      width: 30,
       height: 10,
       x: 1000,
       y: 1000
@@ -154,11 +154,12 @@ export class AppComponent implements OnInit {
   private rooms = [];
   // roomIndex = 0;
 
-  public currentFloor = 0;
+  public currentFloor;
+  public currentRoom;
 
   public listChecked;
 
-  public roomClicked;
+  // public roomClicked;
 
   public nameChecked;
   public typeChecked;
@@ -176,7 +177,9 @@ export class AppComponent implements OnInit {
 
     this.listChecked = true;
 
-    this.roomClicked = false;
+    // this.roomClicked = false;
+    this.currentFloor = 0;
+    this.currentRoom = null;
 
     this.nameChecked = true;
     this.typeChecked = true;
@@ -210,8 +213,29 @@ export class AppComponent implements OnInit {
     }
   }
 
-  setRoomClicked(): void {
-    this.roomClicked = !this.roomClicked;
+  setRoomClicked(currentRoomIndex): void {
+    // this.roomClicked = !this.roomClicked;
+    this.currentRoom = this.roomSet[currentRoomIndex];
+  }
+
+  checkIfSelected(): boolean {
+    return this.currentRoom != null;
+  }
+
+  checkForCrowd(): boolean {
+    if (this.checkIfSelected()) {
+      return this.currentRoom.type === 'Cafetaria' || this.currentRoom.type === 'Studyarea';
+    }
+    return false;
+  }
+
+  checkForReservation(): boolean {
+    if (this.checkIfSelected()) {
+      return this.currentRoom.type === 'Classroom' || this.currentRoom.type === 'Meetingroom'
+        || this.currentRoom.type === 'Auditorium';
+    } else {
+      return false;
+    }
   }
 
   changeListChecked(): void {

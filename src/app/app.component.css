@@ -96,6 +96,8 @@ label {
 }
 
 #details {
+  margin-left: 20px;
+  width: 200px;
   height: 30px;
   font-size: 1.5rem;
   border: 2px solid black;

@@ -1,11 +1,11 @@
 <form id="viewchoice">
-  <input type="radio" name="view" (click)="changeListChecked()" checked>
+  <input type="radio" name="view" (change)="changeListChecked()" checked>
   <div id="listoption">List</div>
-  <input type="radio" name="view" (click)="changePlanChecked()">
+  <input type="radio" name="view" (change)="changePlanChecked()">
   <div id="planoption">Plan</div>
 </form>
 
-<section id="navigate">
+<section *ngIf="listChecked" id="navigate">
   <button (click)="floorDown()"><img
     src="http://img1.wikia.nocookie.net/__cb20131015141652/community-sitcom/images/7/7b/Arrow_down.png"
     alt="arrow down"></button>
@@ -16,7 +16,7 @@
 
 <section id="mainsection">
   <section id="rooms">
-    <app-room (click)="setRoomClicked()" *ngFor="let room of rooms; index as i"
+    <app-room (click)="setRoomClicked(i)" *ngFor="let room of rooms; index as i"
               [rooms]="roomSet"
               [currentRoomIndex]="i"
               [currentFloor]="currentFloor"
@@ -30,18 +30,20 @@
     </app-room>
   </section>
 
-  <section id="settings" *ngIf="roomClicked">
-    <div id="crowdSetting">
+  <section id="settings">
+    <div *ngIf="checkForCrowd()" id="crowdSetting">
       <label for="crowdSlider"><strong>Crowd</strong></label>
       <input type="range" name="crowd" id="crowdSlider" [(ngModel)]="crowd" min="10" max="1000"/>
+      <!--<input type="range" name="crowd" id="crowdSlider" [value]="crowd" (change)="crowdChange.emit($event.target.value)"-->
+             <!--min="10" max="1000"/>-->
     </div>
-    <div id="reservationSetting">
+    <div *ngIf="checkForReservation()" id="reservationSetting">
       <h4>Reservation</h4>
       <button>1</button>
       <button>2</button>
       <button>3</button>
     </div>
-    <button id="details">Details</button>
+    <button *ngIf="checkIfSelected()" id="details">Details</button>
   </section>
 
   <section id="filter" *ngIf="rooms.length > 0">
@@ -49,27 +51,27 @@
     <table id="attributes">
       <tr>
         <td>Name</td>
-        <td><input id="cbName" type="checkbox" (click)="changeNameChecked()" checked></td>
+        <td><input id="cbName" type="checkbox" (change)="changeNameChecked()" checked></td>
       </tr>
       <tr>
         <td>Type</td>
-        <td><input id="cbType" type="checkbox" (click)="changeTypeChecked()" checked></td>
+        <td><input id="cbType" type="checkbox" (change)="changeTypeChecked()" checked></td>
       </tr>
       <tr>
         <td>Capacity</td>
-        <td><input id="cbCapacity" type="checkbox" (click)="changeCapacityChecked()"></td>
+        <td><input id="cbCapacity" type="checkbox" (change)="changeCapacityChecked()"></td>
       </tr>
       <tr>
         <td>Beamer</td>
-        <td><input id="cbBeamer" type="checkbox" (click)="changeBeamerChecked()"></td>
+        <td><input id="cbBeamer" type="checkbox" (change)="changeBeamerChecked()"></td>
       </tr>
       <tr>
         <td>Occupied</td>
-        <td><input id="cbOccupied" type="checkbox" (click)="changeOccupiedChecked()" checked></td>
+        <td><input id="cbOccupied" type="checkbox" (change)="changeOccupiedChecked()" checked></td>
       </tr>
       <tr>
         <td>Crowd</td>
-        <td><input id="cbCrowd" type="checkbox" (click)="changeCrowdChecked()" checked></td>
+        <td><input id="cbCrowd" type="checkbox" (change)="changeCrowdChecked()" checked></td>
       </tr>
     </table>
   </section>

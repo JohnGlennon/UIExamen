@@ -34,10 +34,41 @@ export class RoomComponent implements OnInit {
   }
 
   setStyle(): Object {
+    // if (this.rooms[this.currentRoomIndex].type === 'Auditorium' || this.rooms[this.currentRoomIndex].type === 'Classroom'
+    //   || this.rooms[this.currentRoomIndex].type === 'Meetingroom') {
+    //   return {
+    //     'background-color': this.occupiedChecked ? this.rooms[this.currentRoomIndex].occupied ? 'red' : 'green' : 'white',
+    //     'width': this.listChecked ? '40rem' : this.rooms[this.currentRoomIndex].width * 10 + 'px',
+    //     'height': this.listChecked ? '100px' : this.rooms[this.currentRoomIndex].height * 10 + 'px'
+    //   };
+    // } else {
     return {
-      'background-color': this.occupiedChecked ? this.rooms[this.currentRoomIndex].occupied ? '#ff8800' : '#09ff2a' : 'white',
+      'background-color': this.getColor(),
       'width': this.listChecked ? '40rem' : this.rooms[this.currentRoomIndex].width * 10 + 'px',
       'height': this.listChecked ? '100px' : this.rooms[this.currentRoomIndex].height * 10 + 'px'
     };
+    // }
+  }
+
+  private getColor(): any {
+    const blue = 0;
+    const maxRed = 200;
+    const maxGreen = 200;
+
+    if (this.rooms[this.currentRoomIndex].type === 'Auditorium' || this.rooms[this.currentRoomIndex].type === 'Classroom'
+      || this.rooms[this.currentRoomIndex].type === 'Meetingroom') {
+      return this.occupiedChecked ? this.rooms[this.currentRoomIndex].occupied ? 'red' : 'green' : 'white';
+    } else if ((this.rooms[this.currentRoomIndex].type === 'Cafetaria' || this.rooms[this.currentRoomIndex].type === 'Studyarea')
+      && this.crowdChecked) {
+      const percent = this.rooms[this.currentRoomIndex].crowd / this.rooms[this.currentRoomIndex].capacity;
+      const red = maxRed - (maxRed * (1 - percent));
+      const green = maxGreen * (1 - percent);
+      return 'rgb(' + red + ',' + green + ',' + blue + ')';
+    }
+  }
+
+  checkForFloor(): boolean {
+    return (this.pickId() === 'rectangle' && this.currentFloor === this.rooms[this.currentRoomIndex].floor)
+      || this.pickId() === 'shape';
   }
 }

@@ -1,4 +1,5 @@
-<div class="room" [id]="pickId()" *ngIf="currentFloor==rooms[currentRoomIndex].floor"
+<div class="room" [id]="pickId()"
+     *ngIf="checkForFloor()"
      [ngStyle]="setStyle()">
   <section class="roominfo">
     <div class="name" *ngIf="nameChecked">{{rooms[currentRoomIndex].name}}</div>
