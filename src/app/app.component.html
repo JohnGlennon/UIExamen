@@ -33,7 +33,8 @@
   <section id="settings">
     <div *ngIf="checkForCrowd()" id="crowdSetting">
       <label for="crowdSlider"><strong>Crowd</strong></label>
-      <input type="range" name="crowd" id="crowdSlider" [(ngModel)]="crowd" min="0" max="{{currentRoom.capacity}}"/>
+      <input type="range" name="crowd" id="crowdSlider" [(ngModel)]="currentRoom.crowd" min="0"
+             max="{{currentRoom.capacity}}"/>
     </div>
     <div *ngIf="checkForReservation()" id="reservationSetting">
       <h4>Reservation</h4>
