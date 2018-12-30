@@ -168,7 +168,7 @@ export class AppComponent implements OnInit {
   public occupiedChecked;
   public crowdChecked;
 
-  @Input() crowd;
+  // @Input() crowd;
 
   ngOnInit(): void {
     for (let i = 0; i < this.roomSet.length; i++) {

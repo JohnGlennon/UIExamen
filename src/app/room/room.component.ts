@@ -19,10 +19,13 @@ export class RoomComponent implements OnInit {
   @Input() crowdChecked;
   @Output() stop: EventEmitter<number> = new EventEmitter<number>();
 
+  currentRoom;
+
   constructor() {
   }
 
   ngOnInit() {
+    this.currentRoom = this.rooms[this.currentRoomIndex];
   }
 
   pickId(): string {
@@ -36,8 +39,8 @@ export class RoomComponent implements OnInit {
   setStyle(): Object {
     return {
       'background-color': this.getColor(),
-      'width': this.listChecked ? '40rem' : this.rooms[this.currentRoomIndex].width * 10 + 'px',
-      'height': this.listChecked ? '100px' : this.rooms[this.currentRoomIndex].height * 10 + 'px'
+      'width': this.listChecked ? '40rem' : this.currentRoom.width * 10 + 'px',
+      'height': this.listChecked ? '100px' : this.currentRoom.height * 10 + 'px'
     };
   }
 
@@ -46,12 +49,12 @@ export class RoomComponent implements OnInit {
     const maxRed = 255;
     const maxGreen = 255;
 
-    if (this.rooms[this.currentRoomIndex].type === 'Auditorium' || this.rooms[this.currentRoomIndex].type === 'Classroom'
-      || this.rooms[this.currentRoomIndex].type === 'Meetingroom') {
-      return this.occupiedChecked ? this.rooms[this.currentRoomIndex].occupied ? 'red' : 'green' : 'white';
-    } else if ((this.rooms[this.currentRoomIndex].type === 'Cafetaria' || this.rooms[this.currentRoomIndex].type === 'Studyarea')
+    if (this.currentRoom.type === 'Auditorium' || this.currentRoom.type === 'Classroom'
+      || this.currentRoom.type === 'Meetingroom') {
+      return this.occupiedChecked ? this.currentRoom.occupied ? 'red' : 'green' : 'white';
+    } else if ((this.currentRoom.type === 'Cafetaria' || this.currentRoom.type === 'Studyarea')
       && this.crowdChecked) {
-      const percent = this.rooms[this.currentRoomIndex].crowd / this.rooms[this.currentRoomIndex].capacity;
+      const percent = this.currentRoom.crowd / this.currentRoom.capacity;
       const red = maxRed - (maxRed * (1 - percent));
       const green = maxGreen * (1 - percent);
       return 'rgb(' + red + ',' + green + ',' + blue + ')';
@@ -59,7 +62,7 @@ export class RoomComponent implements OnInit {
   }
 
   checkForFloor(): boolean {
-    return (this.pickId() === 'rectangle' && this.currentFloor === this.rooms[this.currentRoomIndex].floor)
+    return (this.pickId() === 'rectangle' && this.currentFloor === this.currentRoom.floor)
       || this.pickId() === 'shape';
   }
 }
