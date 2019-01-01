@@ -26,7 +26,9 @@
               [capacityChecked]="capacityChecked"
               [beamerChecked]="beamerChecked"
               [occupiedChecked]="occupiedChecked"
-              [crowdChecked]="crowdChecked">
+              [crowdChecked]="crowdChecked"
+              [colorNotOccupied]="colorNotOccupied"
+              [colorOccupied]="colorOccupied">
     </app-room>
   </section>
 
@@ -74,6 +76,14 @@
       <tr>
         <td>Crowd</td>
         <td><input id="cbCrowd" type="checkbox" (change)="changeCrowdChecked()" checked></td>
+      </tr>
+      <tr>
+        <td>Color not occupied</td>
+        <td><input [(ngModel)]="colorNotOccupied" type="color" value="#00ff00"></td>
+      </tr>
+      <tr>
+        <td>Color occupied</td>
+        <td><input [(ngModel)]="colorOccupied" type="color" value="#ff0000"></td>
       </tr>
     </table>
   </section>

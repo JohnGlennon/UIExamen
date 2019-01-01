@@ -168,6 +168,9 @@ export class HomeComponent implements OnInit {
   public occupiedChecked;
   public crowdChecked;
 
+  public colorNotOccupied;
+  public colorOccupied;
+
   ngOnInit(): void {
     for (let i = 0; i < this.roomSet.length; i++) {
       this.rooms.push(this.roomSet[i]);
@@ -185,6 +188,9 @@ export class HomeComponent implements OnInit {
     this.beamerChecked = false;
     this.occupiedChecked = true;
     this.crowdChecked = true;
+
+    this.colorNotOccupied = '#00ff00';
+    this.colorOccupied = '#ff0000';
   }
 
   // add(): void {
@@ -283,17 +289,4 @@ export class HomeComponent implements OnInit {
   button3Clicked(): void {
     this.currentRoom.hoursReserved = 3;
   }
-
-  // getRouterLink(): any {
-  //   if (this.currentRoom.crowd == null && this.currentRoom.occupied == null) {
-  //     return 'details/' + this.currentRoom.name + '/' + this.currentRoom.type + '/'
-  //       + this.currentRoom.capacity + '/' + this.currentRoom.beamer;
-  //   } else if (this.currentRoom.crowd != null && this.currentRoom.occupied == null) {
-  //     return 'details/' + this.currentRoom.name + '/' + this.currentRoom.type + '/'
-  //       + this.currentRoom.capacity + '/' + this.currentRoom.beamer + '/' + this.currentRoom.crowd;
-  //   } else if (this.currentRoom.crowd == null && this.currentRoom.occupied != null) {
-  //     return 'details/' + this.currentRoom.name + '/' + this.currentRoom.type + '/'
-  //       + this.currentRoom.capacity + '/' + this.currentRoom.beamer + '/' + this.currentRoom.occupied;
-  //   }
-  // }
 }
