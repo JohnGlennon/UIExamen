@@ -1,0 +1,31 @@
+<h1>Room Details</h1>
+
+<form action="">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td>Capacity</td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td>Beamer</td>
+      <td><input type="text"></td>
+    </tr>
+    <tr *ngIf="occupiedPresent()">
+      <td>Occupied</td>
+      <td><input type="text"></td>
+    </tr>
+    <tr *ngIf="crowdPresent()">
+      <td>Crowd</td>
+      <td><input type="text"></td>
+    </tr>
+  </table>
+</form>
+<a routerLink="/home">Save and return to home</a>

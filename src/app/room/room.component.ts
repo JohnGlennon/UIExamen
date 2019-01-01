@@ -17,6 +17,8 @@ export class RoomComponent implements OnInit {
   @Input() beamerChecked;
   @Input() occupiedChecked;
   @Input() crowdChecked;
+  @Input() hoursReserved;
+
   @Output() stop: EventEmitter<number> = new EventEmitter<number>();
 
   currentRoom;

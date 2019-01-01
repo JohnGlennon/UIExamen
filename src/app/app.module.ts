@@ -4,15 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RoomComponent } from './room/room.component';
 import {FormsModule} from '@angular/forms';
+import { DetailsComponent } from './details/details.component';
+import {routingModule} from './app.routing';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RoomComponent
+    RoomComponent,
+    DetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    routingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

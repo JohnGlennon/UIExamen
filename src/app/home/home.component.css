@@ -1,0 +1,111 @@
+#viewchoice {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  font-size: 1.5rem;
+  grid-area: toolbar;
+  float: left;
+}
+
+#listoption {
+  margin-right: 2em;
+}
+
+#navigate button {
+  width: 75px;
+  height: 75px;
+  margin: 20px;
+  font-size: 2rem;
+  border-radius: 20%;
+  border: 2px solid black;
+  text-align: center;
+  background-color: #6293ff;
+}
+
+#navigate button img {
+  max-width: 50%;
+  max-height: 50%;
+}
+
+#navigate button:hover, #reservationSetting button:hover, #details:hover {
+  border: 2px solid #e8e800;
+}
+
+#navigate button:active, #reservationSetting button:active, #details:active {
+  border: 2px solid red;
+}
+
+#navigate {
+  position: absolute;
+  display: inline-block;
+  grid-area: toolbar;
+  right: 20%;
+}
+
+#mainsection {
+  display: flex;
+  margin-top: 100px;
+  grid-area: rooms;
+}
+
+#rooms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 100px;
+  grid-area: rooms;
+}
+
+#filter {
+  margin-top: 100px;
+  grid-area: rooms;
+}
+
+td input {
+  margin-left: 50px;
+}
+
+#settings {
+  margin-top: 100px;
+  margin-right: 100px;
+  grid-area: rooms;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+#settings div {
+  margin: 20px;
+}
+
+label {
+  margin-right: 20px;
+}
+
+#reservationSetting button {
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  font-size: 1.5rem;
+  border: 2px solid black;
+  text-align: center;
+  background-color: #f300ff;
+}
+
+#details {
+  margin-left: 20px;
+  width: 200px;
+  height: 30px;
+  font-size: 1.5rem;
+  border: 2px solid black;
+  background-color: #09fff8;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
