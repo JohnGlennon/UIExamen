@@ -258,7 +258,6 @@ export class HomeComponent implements OnInit {
     switch (p) {
       case 'name':
         this.nameChecked = !this.nameChecked;
-        localStorage.setItem('nameChecked', this.nameChecked);
         break;
       case 'type':
         this.typeChecked = !this.typeChecked;
