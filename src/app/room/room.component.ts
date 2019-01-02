@@ -51,14 +51,6 @@ export class RoomComponent implements OnInit {
   private getColor(): any {
     const max = 255;
 
-    // const occupiedRed = this.colorOccupied.substr(1, 2);
-    // const occupiedGreen = this.colorOccupied.substr(3, 2);
-    // const occupiedBlue = this.colorOccupied.substr(5, 2);
-    //
-    // const notOccupiedRed = this.colorNotOccupied.substr(1, 2);
-    // const notOccupiedGreen = this.colorNotOccupied.substr(3, 2);
-    // const notOccupiedBlue = this.colorNotOccupied.substr(5, 2);
-
     if (this.currentRoom.type === 'Auditorium' || this.currentRoom.type === 'Classroom'
       || this.currentRoom.type === 'Meetingroom') {
       return this.occupiedChecked ? this.currentRoom.occupied ? this.colorOccupied : this.colorNotOccupied : 'white';
