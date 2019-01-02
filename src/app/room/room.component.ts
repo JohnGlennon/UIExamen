@@ -51,17 +51,41 @@ export class RoomComponent implements OnInit {
   private getColor(): any {
     const max = 255;
 
+    const occupiedRed = this.hexToR(this.colorOccupied);
+    const occupiedGreen = this.hexToG(this.colorOccupied);
+    const occupiedBlue = this.hexToB(this.colorOccupied);
+
+    const notOccupiedRed = this.hexToR(this.colorNotOccupied);
+    const notOccupiedGreen = this.hexToG(this.colorNotOccupied);
+    const notOccupiedBlue = this.hexToB(this.colorNotOccupied);
+
     if (this.currentRoom.type === 'Auditorium' || this.currentRoom.type === 'Classroom'
       || this.currentRoom.type === 'Meetingroom') {
       return this.occupiedChecked ? this.currentRoom.occupied ? this.colorOccupied : this.colorNotOccupied : 'white';
     } else if ((this.currentRoom.type === 'Cafetaria' || this.currentRoom.type === 'Studyarea')
       && this.crowdChecked) {
       const percent = this.currentRoom.crowd / this.currentRoom.capacity;
-      const red = max - (max * (1 - percent));
-      const green = max * (1 - percent);
-      const blue = 0;
+      const red = occupiedRed - (occupiedRed * (1 - percent)) + (notOccupiedRed * (1 - percent));
+      const green = occupiedGreen - (occupiedGreen * (1 - percent)) + (notOccupiedGreen * (1 - percent));
+      const blue = occupiedBlue - (occupiedBlue * (1 - percent)) + (notOccupiedBlue * (1 - percent));
       return 'rgb(' + red + ',' + green + ',' + blue + ')';
     }
+  }
+
+  private hexToR(h): number {
+    return parseInt((this.cutHex(h)).substring(0, 2), 16);
+  }
+
+  private hexToG(h): number {
+    return parseInt((this.cutHex(h)).substring(2, 4), 16);
+  }
+
+  private hexToB(h): number {
+    return parseInt((this.cutHex(h)).substring(4, 6), 16);
+  }
+
+  private cutHex(h): any {
+    return (h.charAt(0) === '#') ? h.substring(1, 7) : h;
   }
 
   checkForFloor(): boolean {
