@@ -189,6 +189,20 @@ export class HomeComponent implements OnInit {
     this.occupiedChecked = true;
     this.crowdChecked = true;
 
+    // this.nameChecked = localStorage.getItem('nameChecked');
+    // this.typeChecked = localStorage.getItem('typeChecked');
+    // this.capacityChecked = localStorage.getItem('capacityChecked');
+    // this.beamerChecked = localStorage.getItem('beamerChecked');
+    // this.occupiedChecked = localStorage.getItem('occupiedChecked');
+    // this.crowdChecked = localStorage.getItem('crowdChecked');
+
+    // localStorage.setItem('nameChecked', this.nameChecked);
+    // localStorage.setItem('typeChecked', this.typeChecked);
+    // localStorage.setItem('capacityChecked', this.capacityChecked);
+    // localStorage.setItem('beamerChecked', this.beamerChecked);
+    // localStorage.setItem('occupiedChecked', this.occupiedChecked);
+    // localStorage.setItem('crowdChecked', this.crowdChecked);
+
     this.colorNotOccupied = '#00ff00';
     this.colorOccupied = '#ff0000';
   }
@@ -258,24 +272,34 @@ export class HomeComponent implements OnInit {
     switch (p) {
       case 'name':
         this.nameChecked = !this.nameChecked;
+        // localStorage.setItem('nameChecked', this.nameChecked);
         break;
       case 'type':
         this.typeChecked = !this.typeChecked;
+        // localStorage.setItem('typeChecked', this.typeChecked);
         break;
       case 'capacity':
         this.capacityChecked = !this.capacityChecked;
+        // localStorage.setItem('capacityChecked', this.capacityChecked);
         break;
       case 'beamer':
         this.beamerChecked = !this.beamerChecked;
+        // localStorage.setItem('beamerChecked', this.beamerChecked);
         break;
       case 'occupied':
         this.occupiedChecked = !this.occupiedChecked;
+        // localStorage.setItem('occupiedChecked', this.occupiedChecked);
         break;
       case 'crowd':
         this.crowdChecked = !this.crowdChecked;
+        // localStorage.setItem('crowdChecked', this.crowdChecked);
         break;
     }
   }
+
+  // getCheckBox(cb: string): boolean {
+  //   return Boolean(localStorage.getItem(cb));
+  // }
 
   buttonClicked(h: number): void {
     this.currentRoom.hoursReserved = h;
