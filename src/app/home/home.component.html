@@ -15,7 +15,7 @@
 </section>
 
 <section id="mainsection">
-  <section id="rooms">
+  <section [id]="getRoomsId()">
     <app-room (click)="setRoomClicked(i)" *ngFor="let room of rooms; index as i"
               [rooms]="roomSet"
               [currentRoomIndex]="i"
@@ -32,7 +32,7 @@
     </app-room>
   </section>
 
-  <section id="settings">
+  <section [id]="getSettingsId()">
     <div *ngIf="checkForCrowd()" id="crowdSetting">
       <label for="crowdSlider"><strong>Crowd</strong></label>
       <input type="range" name="crowd" id="crowdSlider" [(ngModel)]="currentRoom.crowd" min="0"
@@ -50,7 +50,7 @@
     </button>
   </section>
 
-  <section id="filter" *ngIf="rooms.length > 0">
+  <section [id]="getFilterId()" *ngIf="rooms.length > 0">
     <h4>Filter</h4>
     <table id="attributes">
       <tr>

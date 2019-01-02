@@ -1,14 +1,21 @@
-.room {
+.roomIfList {
   border: black 1px solid;
   margin: 1px;
   grid-area: rooms;
 }
 
-.room:hover {
+.roomIfPlan {
+  border: black 1px solid;
+  margin: 1px;
+  grid-area: rooms;
+  position: absolute;
+}
+
+.roomIfList:hover, .roomIfPlan:hover {
   border: 2px solid black;
 }
 
-.room:active {
+.roomIfList:active, .roomIfPlan:active {
   border: 2px solid red;
 }
 

@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
       width: 30,
       height: 30,
       x: 0,
-      y: 500
+      y: 0
     },
     {
       name: 'GR411',
@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
       crowd: 75,
       width: 30,
       height: 20,
-      x: 1000,
-      y: 200
+      x: 30,
+      y: 0
     },
     {
       name: 'GR107',
@@ -43,8 +43,8 @@ export class HomeComponent implements OnInit {
       occupied: true,
       width: 20,
       height: 20,
-      x: 500,
-      y: 400
+      x: 60,
+      y: 0
     },
     {
       name: 'GR315',
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
       beamer: false,
       width: 20,
       height: 20,
-      x: 0,
+      x: 80,
       y: 0
     },
     {
@@ -68,8 +68,8 @@ export class HomeComponent implements OnInit {
       occupied: true,
       width: 30,
       height: 10,
-      x: 1000,
-      y: 1000
+      x: 100,
+      y: 0
     },
     {
       name: 'GR511',
@@ -81,8 +81,8 @@ export class HomeComponent implements OnInit {
       occupied: false,
       width: 30,
       height: 30,
-      x: 300,
-      y: 200
+      x: 30,
+      y: 20
     },
     {
       name: 'GR208',
@@ -94,8 +94,8 @@ export class HomeComponent implements OnInit {
       occupied: true,
       width: 30,
       height: 30,
-      x: 700,
-      y: 300
+      x: 60,
+      y: 20
     },
     {
       name: 'GR314',
@@ -107,8 +107,8 @@ export class HomeComponent implements OnInit {
       occupied: true,
       width: 20,
       height: 30,
-      x: 600,
-      y: 600
+      x: 90,
+      y: 20
     },
     {
       name: 'GR406',
@@ -120,8 +120,8 @@ export class HomeComponent implements OnInit {
       occupied: false,
       width: 15,
       height: 30,
-      x: 700,
-      y: 200
+      x: 110,
+      y: 20
     },
     {
       name: 'GR101',
@@ -133,8 +133,8 @@ export class HomeComponent implements OnInit {
       crowd: 100,
       width: 30,
       height: 10,
-      x: 500,
-      y: 500
+      x: 100,
+      y: 10
     },
     {
       name: 'The Floor',
@@ -146,8 +146,8 @@ export class HomeComponent implements OnInit {
       crowd: 100,
       width: 50,
       height: 20,
-      x: 1000,
-      y: 500
+      x: 30,
+      y: 50
     }
   ];
 
@@ -303,5 +303,17 @@ export class HomeComponent implements OnInit {
 
   buttonClicked(h: number): void {
     this.currentRoom.hoursReserved = h;
+  }
+
+  getRoomsId(): string {
+    return this.listChecked ? 'roomsIfList' : 'roomsIfPlan';
+  }
+
+  getFilterId(): string {
+    return this.listChecked ? 'filterIfList' : 'filterIfPlan';
+  }
+
+  getSettingsId(): string {
+    return this.listChecked ? 'settingsIfList' : 'settingsIfPlan';
   }
 }

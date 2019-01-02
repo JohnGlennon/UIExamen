@@ -52,7 +52,7 @@
   grid-area: rooms;
 }
 
-#rooms {
+#roomsIfList {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,16 +61,29 @@
   grid-area: rooms;
 }
 
-#filter {
+#roomsIfPlan {
+  display: flex;
+  flex-direction: row;
+}
+
+#filterIfList {
   margin-top: 100px;
   grid-area: rooms;
+}
+
+#filterIfPlan {
+  grid-area: rooms;
+  position: absolute;
+  right: 20px;
+  top: 80%;
+  margin: 15px;
 }
 
 td input {
   margin-left: 50px;
 }
 
-#settings {
+#settingsIfList {
   margin-top: 100px;
   margin-right: 100px;
   grid-area: rooms;
@@ -78,7 +91,15 @@ td input {
   flex-direction: column;
 }
 
-#settings div {
+#settingsIfPlan {
+  position: absolute;
+  grid-area: rooms;
+  display: inline-flex;
+  flex-direction: column;
+  top: 60%;
+}
+
+#settingsIfList div, #settingsIfPlan div {
   margin: 20px;
 }
 
