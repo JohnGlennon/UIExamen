@@ -24,26 +24,25 @@
   /*height: 100px;*/
 /*}*/
 
-#shape .roominfo {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: start;
-}
-
 img {
   max-width: 30px;
   max-height: 50px;
 }
 
-#rectangle .roominfo {
+.roominfo {
   display: inline-flex;
   align-items: center;
   margin-top: 10px;
 }
 
-section div, section img {
+#rectangle div, #rectangle img {
   margin-left: 2rem;
   margin-right: 2rem;
+}
+
+#shape div, #shape img {
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
 }
 
 #rectangle .name {
