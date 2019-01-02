@@ -254,39 +254,30 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  changeNameChecked(): void {
-    this.nameChecked = !this.nameChecked;
+  changeCheckBox(p: string) {
+    switch (p) {
+      case 'name':
+        this.nameChecked = !this.nameChecked;
+        break;
+      case 'type':
+        this.typeChecked = !this.typeChecked;
+        break;
+      case 'capacity':
+        this.capacityChecked = !this.capacityChecked;
+        break;
+      case 'beamer':
+        this.beamerChecked = !this.beamerChecked;
+        break;
+      case 'occupied':
+        this.occupiedChecked = !this.occupiedChecked;
+        break;
+      case 'crowd':
+        this.crowdChecked = !this.crowdChecked;
+        break;
+    }
   }
 
-  changeTypeChecked(): void {
-    this.typeChecked = !this.typeChecked;
-  }
-
-  changeCapacityChecked(): void {
-    this.capacityChecked = !this.capacityChecked;
-  }
-
-  changeBeamerChecked(): void {
-    this.beamerChecked = !this.beamerChecked;
-  }
-
-  changeOccupiedChecked(): void {
-    this.occupiedChecked = !this.occupiedChecked;
-  }
-
-  changeCrowdChecked(): void {
-    this.crowdChecked = !this.crowdChecked;
-  }
-
-  button1Clicked(): void {
-    this.currentRoom.hoursReserved = 1;
-  }
-
-  button2Clicked(): void {
-    this.currentRoom.hoursReserved = 2;
-  }
-
-  button3Clicked(): void {
-    this.currentRoom.hoursReserved = 3;
+  buttonClicked(h: number): void {
+    this.currentRoom.hoursReserved = h;
   }
 }

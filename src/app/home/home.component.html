@@ -40,9 +40,9 @@
     </div>
     <div *ngIf="checkForReservation()" id="reservationSetting">
       <h4>Reservation</h4>
-      <button (click)="button1Clicked()">1</button>
-      <button (click)="button2Clicked()">2</button>
-      <button (click)="button3Clicked()">3</button>
+      <button (click)="buttonClicked(1)">1</button>
+      <button (click)="buttonClicked(2)">2</button>
+      <button (click)="buttonClicked(3)">3</button>
       <p *ngIf="currentRoom.hoursReserved > 0">You reserved this room for {{currentRoom.hoursReserved}} hour(s)</p>
     </div>
     <button *ngIf="checkIfSelected()" id="details"><a
@@ -55,27 +55,27 @@
     <table id="attributes">
       <tr>
         <td>Name</td>
-        <td><input id="cbName" type="checkbox" (change)="changeNameChecked()" checked></td>
+        <td><input id="cbName" type="checkbox" (change)="changeCheckBox('name')" checked></td>
       </tr>
       <tr>
         <td>Type</td>
-        <td><input id="cbType" type="checkbox" (change)="changeTypeChecked()" checked></td>
+        <td><input id="cbType" type="checkbox" (change)="changeCheckBox('type')" checked></td>
       </tr>
       <tr>
         <td>Capacity</td>
-        <td><input id="cbCapacity" type="checkbox" (change)="changeCapacityChecked()"></td>
+        <td><input id="cbCapacity" type="checkbox" (change)="changeCheckBox('capacity')"></td>
       </tr>
       <tr>
         <td>Beamer</td>
-        <td><input id="cbBeamer" type="checkbox" (change)="changeBeamerChecked()"></td>
+        <td><input id="cbBeamer" type="checkbox" (change)="changeCheckBox('beamer')"></td>
       </tr>
       <tr>
         <td>Occupied</td>
-        <td><input id="cbOccupied" type="checkbox" (change)="changeOccupiedChecked()" checked></td>
+        <td><input id="cbOccupied" type="checkbox" (change)="changeCheckBox('occupied')" checked></td>
       </tr>
       <tr>
         <td>Crowd</td>
-        <td><input id="cbCrowd" type="checkbox" (change)="changeCrowdChecked()" checked></td>
+        <td><input id="cbCrowd" type="checkbox" (change)="changeCheckBox('crowd')" checked></td>
       </tr>
       <tr>
         <td>Color not occupied</td>
