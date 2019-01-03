@@ -17,7 +17,7 @@
 <section id="mainsection">
   <section [id]="getRoomsId()">
     <app-room (click)="setRoomClicked(i)" *ngFor="let room of rooms; index as i"
-              [rooms]="roomSet"
+              [rooms]="rooms"
               [currentRoomIndex]="i"
               [currentFloor]="currentFloor"
               [listChecked]="listChecked"
@@ -45,9 +45,7 @@
       <button (click)="buttonClicked(3)">3</button>
       <p *ngIf="currentRoom.hoursReserved > 0">You reserved this room for {{currentRoom.hoursReserved}} hour(s)</p>
     </div>
-    <button *ngIf="checkIfSelected()" id="details"><a
-      routerLink="/details/{{currentRoom.name}}">Details</a>
-    </button>
+    <button routerLink="/api/rooms/{{currentRoom.id}}" *ngIf="checkIfSelected()" id="details">Details</button>
   </section>
 
   <section [id]="getFilterId()" *ngIf="rooms.length > 0">
@@ -55,27 +53,27 @@
     <table id="attributes">
       <tr>
         <td>Name</td>
-        <td><input id="cbName" type="checkbox" (change)="changeCheckBox('name')" checked></td>
+        <td><input id="cbName" type="checkbox" [(ngModel)]="nameChecked" checked></td>
       </tr>
       <tr>
         <td>Type</td>
-        <td><input id="cbType" type="checkbox" (change)="changeCheckBox('type')" checked></td>
+        <td><input id="cbType" type="checkbox" [(ngModel)]="typeChecked" checked></td>
       </tr>
       <tr>
         <td>Capacity</td>
-        <td><input id="cbCapacity" type="checkbox" (change)="changeCheckBox('capacity')"></td>
+        <td><input id="cbCapacity" type="checkbox" [(ngModel)]="capacityChecked"></td>
       </tr>
       <tr>
         <td>Beamer</td>
-        <td><input id="cbBeamer" type="checkbox" (change)="changeCheckBox('beamer')"></td>
+        <td><input id="cbBeamer" type="checkbox" [(ngModel)]="beamerChecked"></td>
       </tr>
       <tr>
         <td>Occupied</td>
-        <td><input id="cbOccupied" type="checkbox" (change)="changeCheckBox('occupied')" checked></td>
+        <td><input id="cbOccupied" type="checkbox" [(ngModel)]="occupiedChecked" checked></td>
       </tr>
       <tr>
         <td>Crowd</td>
-        <td><input id="cbCrowd" type="checkbox" (change)="changeCheckBox('crowd')" checked></td>
+        <td><input id="cbCrowd" type="checkbox" [(ngModel)]="crowdChecked" checked></td>
       </tr>
       <tr>
         <td>Color not occupied</td>

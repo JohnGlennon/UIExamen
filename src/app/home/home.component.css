@@ -119,14 +119,9 @@ label {
 
 #details {
   margin-left: 20px;
-  width: 100px;
+  width: 200px;
   height: 30px;
   font-size: 1.5rem;
   border: 2px solid black;
   background-color: #09fff8;
-}
-
-a {
-  text-decoration: none;
-  color: black;
 }

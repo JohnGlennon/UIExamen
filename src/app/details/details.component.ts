@@ -1,4 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Room} from '../model/room';
+import {ActivatedRoute} from '@angular/router';
+import {RoomService} from '../services/room.service';
 
 @Component({
   selector: 'app-details',
@@ -6,18 +9,27 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+  @Input() room: Room;
 
-  constructor() {
+  constructor(private route: ActivatedRoute,
+              private roomService: RoomService) {
   }
 
   ngOnInit() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.roomService.getRoom(id)
+      .subscribe(room => this.room = room);
+  }
+
+  save(): void {
+    this.roomService.updateRoom(this.room);
   }
 
   occupiedPresent(): boolean {
-    return true;
+    return this.room.occupied != null;
   }
 
   crowdPresent(): boolean {
-    return true;
+    return this.room.crowd != null;
   }
 }
