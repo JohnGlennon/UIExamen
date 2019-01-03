@@ -20,8 +20,8 @@
 }
 
 /*#rectangle {*/
-  /*width: 50rem;*/
-  /*height: 100px;*/
+/*width: 50rem;*/
+/*height: 100px;*/
 /*}*/
 
 img {
@@ -29,15 +29,26 @@ img {
   max-height: 50px;
 }
 
-.roominfo {
+.roominfoHorizontal {
   display: inline-flex;
   align-items: center;
   margin-top: 10px;
 }
 
+.roominfoVertical {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+}
+
 #rectangle div, #rectangle img {
   margin-left: 2rem;
   margin-right: 2rem;
+}
+
+.roominfoVertical div, .roominfoVertical img {
+  margin-bottom: 0.6rem;
 }
 
 #shape div, #shape img {

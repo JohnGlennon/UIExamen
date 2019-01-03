@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
       capacity: 75,
       beamer: true,
       occupied: true,
-      width: 20,
+      width: 30,
       height: 20,
       x: 60,
       y: 0
@@ -53,9 +53,9 @@ export class HomeComponent implements OnInit {
       url: 'http://www.newdesignfile.com/postpic/2010/04/black-office-worker-icon_76222.png',
       capacity: 20,
       beamer: false,
-      width: 20,
+      width: 30,
       height: 20,
-      x: 80,
+      x: 90,
       y: 0
     },
     {
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
       occupied: true,
       width: 30,
       height: 10,
-      x: 100,
+      x: 120,
       y: 0
     },
     {
@@ -133,7 +133,7 @@ export class HomeComponent implements OnInit {
       crowd: 100,
       width: 30,
       height: 10,
-      x: 100,
+      x: 120,
       y: 10
     },
     {

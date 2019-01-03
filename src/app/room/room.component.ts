@@ -40,6 +40,10 @@ export class RoomComponent implements OnInit {
     return this.listChecked ? 'roomIfList' : 'roomIfPlan';
   }
 
+  pickClassForRoominfo(): string {
+    return this.currentRoom.width >= 30 ? 'roominfoHorizontal' : 'roominfoVertical';
+  }
+
   setStyle(): Object {
     return {
       'background-color': this.getColor(),

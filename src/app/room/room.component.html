@@ -1,7 +1,7 @@
 <div [class]="pickClass()" [id]="pickId()"
      *ngIf="checkForFloor()"
      [ngStyle]="setStyle()">
-  <section class="roominfo">
+  <section [class]="pickClassForRoominfo()">
     <div class="name" *ngIf="nameChecked">{{rooms[currentRoomIndex].name}}</div>
     <div class="type" *ngIf="typeChecked">
       <img [src]="rooms[currentRoomIndex].url" [alt]="rooms[currentRoomIndex].type">
