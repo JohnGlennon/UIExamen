@@ -111,9 +111,12 @@ export class HomeComponent implements OnInit {
 
   setRoomClicked(currentRoomIndex): void {
     // this.roomClicked = !this.roomClicked;
-    clearTimeout(this.timeout);
     this.currentRoom = this.rooms[currentRoomIndex];
-    this.timeout = setTimeout(() => this.currentRoom = null, 10000);
+  }
+
+  roomOrSettingClicked(): void {
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => this.currentRoom = null, 5000);
   }
 
   checkIfSelected(): boolean {
