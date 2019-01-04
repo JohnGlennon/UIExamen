@@ -1,10 +1,27 @@
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import {InMemoryDbService} from 'angular-in-memory-web-api';
 import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
+  getUrl(type: string): string {
+    switch (type) {
+      case 'Auditorium':
+        return 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Auditorium_icon.svg/1000px-Auditorium_icon.svg.png';
+      case 'Classroom':
+        return 'http://www.icone-png.com/png/54/53749.png';
+      case 'Cafetaria':
+        return 'https://cdn.onlinewebfonts.com/svg/img_180524.png';
+      case 'Meetingroom':
+        return 'https://cdn1.iconfinder.com/data/icons/business-proposal-sales-idea-presentation/520/appointment-meeting-012-512.png';
+      case 'Office':
+        return 'http://www.newdesignfile.com/postpic/2010/04/black-office-worker-icon_76222.png';
+      case 'Studyarea':
+        return 'https://www.walton.k12.ga.us/ArticleImages/20183293717201_image.png';
+    }
+  }
+
   createDb() {
     const rooms = [
       {
@@ -12,7 +29,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'GR001',
         floor: 0,
         type: 'Auditorium',
-        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Auditorium_icon.svg/1000px-Auditorium_icon.svg.png',
+        url: this.getUrl('Auditorium'),
         capacity: 300,
         beamer: true,
         occupied: true,
@@ -26,7 +43,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'GR411',
         floor: 4,
         type: 'Cafetaria',
-        url: 'https://cdn.onlinewebfonts.com/svg/img_180524.png',
+        url: this.getUrl('Cafetaria'),
         capacity: 200,
         beamer: false,
         crowd: 75,
@@ -40,7 +57,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'GR107',
         floor: 1,
         type: 'Classroom',
-        url: 'http://www.icone-png.com/png/54/53749.png',
+        url: this.getUrl('Classroom'),
         capacity: 75,
         beamer: true,
         occupied: true,
@@ -54,7 +71,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'GR315',
         floor: 3,
         type: 'Office',
-        url: 'http://www.newdesignfile.com/postpic/2010/04/black-office-worker-icon_76222.png',
+        url: this.getUrl('Office'),
         capacity: 20,
         beamer: false,
         width: 30,
@@ -67,7 +84,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'GR501',
         floor: 5,
         type: 'Classroom',
-        url: 'http://www.icone-png.com/png/54/53749.png',
+        url: this.getUrl('Classroom'),
         capacity: 50,
         beamer: true,
         occupied: true,
@@ -81,7 +98,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'GR511',
         floor: 5,
         type: 'Classroom',
-        url: 'http://www.icone-png.com/png/54/53749.png',
+        url: this.getUrl('Classroom'),
         capacity: 100,
         beamer: true,
         occupied: false,
@@ -95,7 +112,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'GR208',
         floor: 2,
         type: 'Meetingroom',
-        url: 'https://cdn1.iconfinder.com/data/icons/business-proposal-sales-idea-presentation/520/appointment-meeting-012-512.png',
+        url: this.getUrl('Meetingroom'),
         capacity: 25,
         beamer: false,
         occupied: true,
@@ -109,7 +126,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'GR314',
         floor: 3,
         type: 'Classroom',
-        url: 'http://www.icone-png.com/png/54/53749.png',
+        url: this.getUrl('Classroom'),
         capacity: 100,
         beamer: true,
         occupied: true,
@@ -123,7 +140,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'GR406',
         floor: 4,
         type: 'Classroom',
-        url: 'http://www.icone-png.com/png/54/53749.png',
+        url: this.getUrl('Classroom'),
         capacity: 50,
         beamer: false,
         occupied: false,
@@ -137,7 +154,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'GR101',
         floor: 1,
         type: 'Cafetaria',
-        url: 'https://cdn.onlinewebfonts.com/svg/img_180524.png',
+        url: this.getUrl('Cafetaria'),
         capacity: 150,
         beamer: false,
         crowd: 100,
@@ -151,7 +168,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'The Floor',
         floor: 0,
         type: 'Studyarea',
-        url: 'https://www.walton.k12.ga.us/ArticleImages/20183293717201_image.png',
+        url: this.getUrl('Studyarea'),
         capacity: 200,
         beamer: false,
         crowd: 100,

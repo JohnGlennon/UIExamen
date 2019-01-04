@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {delay, retry} from 'rxjs/operators';
+import {delay} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {Room} from '../model/room';
 
