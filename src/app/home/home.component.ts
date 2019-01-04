@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit {
   public colorNotOccupied;
   public colorOccupied;
 
+  public timeout;
+
   constructor(private roomService: RoomService) {
   }
 
@@ -77,6 +79,8 @@ export class HomeComponent implements OnInit {
 
     this.colorNotOccupied = '#00ff00';
     this.colorOccupied = '#ff0000';
+
+    this.timeout = null;
   }
 
   // add(): void {
@@ -105,7 +109,9 @@ export class HomeComponent implements OnInit {
 
   setRoomClicked(currentRoomIndex): void {
     // this.roomClicked = !this.roomClicked;
+    clearTimeout(this.timeout);
     this.currentRoom = this.rooms[currentRoomIndex];
+    this.timeout = setTimeout(() => this.currentRoom = null, 5000);
   }
 
   checkIfSelected(): boolean {
