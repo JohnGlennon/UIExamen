@@ -6,6 +6,12 @@ table {
   margin-left: 50px;
 }
 
+select {
+  margin-left: 50px;
+  width: 160px;
+  height: 25px;
+}
+
 .truelabel {
   margin-left: 50px;
 }
