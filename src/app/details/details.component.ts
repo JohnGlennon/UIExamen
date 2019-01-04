@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
   }
 
   save(): void {
-    this.roomService.updateRoom(this.room);
+    this.roomService.updateRoom(this.room).subscribe();
   }
 
   occupiedPresent(): boolean {

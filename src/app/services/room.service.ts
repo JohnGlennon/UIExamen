@@ -25,8 +25,9 @@ export class RoomService {
 
   public updateRoom(room: Room): Observable<any> {
     const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
-    return this.http.put(this.roomsUrl, room, httpOptions);
+    console.log(room);
+    return this.http.post<Room>(this.roomsUrl, room, httpOptions);
   }
 }
