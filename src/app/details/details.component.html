@@ -54,7 +54,7 @@
     </tr>
     <tr *ngIf="crowdPresent()">
       <td>Crowd</td>
-      <td><input class="textinput" type="number" id="crowd" name="crowd" [(ngModel)]="room.crowd" required #crowd="ngModel"></td>
+      <td><input class="textinput" type="number" id="crowd" name="crowd" [(ngModel)]="room.crowd" #crowd="ngModel"></td>
     </tr>
   </table>
   <button (click)="save()">Save</button>
