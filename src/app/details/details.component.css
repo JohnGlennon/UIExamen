@@ -2,8 +2,16 @@ table {
   margin-bottom: 50px;
 }
 
-input {
+.textinput {
   margin-left: 50px;
+}
+
+.truelabel {
+  margin-left: 50px;
+}
+
+label {
+  margin-right: 10px;
 }
 
 button {

@@ -32,4 +32,36 @@ export class DetailsComponent implements OnInit {
   crowdPresent(): boolean {
     return this.room.crowd != null;
   }
+
+  changeBeamerTrue(): void {
+    if (!this.room.beamer) {
+      this.room.beamer = true;
+    }
+  }
+
+  changeBeamerFalse(): void {
+    if (this.room.beamer) {
+      this.room.beamer = false;
+    }
+  }
+
+  checkForBeamer(b: boolean): boolean {
+    return b ? this.room.beamer : !this.room.beamer;
+  }
+
+  changeOccupiedTrue(): void {
+    if (!this.room.occupied) {
+      this.room.occupied = true;
+    }
+  }
+
+  changeOccupiedFalse(): void {
+    if (this.room.occupied) {
+      this.room.occupied = false;
+    }
+  }
+
+  checkForOccupied(b: boolean): boolean {
+    return b ? this.room.occupied : !this.room.occupied;
+  }
 }

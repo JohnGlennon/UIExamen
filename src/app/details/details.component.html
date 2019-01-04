@@ -4,27 +4,46 @@
   <table>
     <tr>
       <td>Name</td>
-      <td><input type="text" value="{{room.name}}"></td>
+      <td><input class="textinput" type="text" value="{{room.name}}"></td>
     </tr>
     <tr>
       <td>Type</td>
-      <td><input type="text" value="{{room.type}}"></td>
+      <td><input class="textinput" type="text" value="{{room.type}}"></td>
     </tr>
     <tr>
       <td>Capacity</td>
-      <td><input type="text" value="{{room.capacity}}"></td>
+      <td><input class="textinput" type="text" value="{{room.capacity}}"></td>
     </tr>
+    <br>
     <tr>
       <td>Beamer</td>
-      <td><input type="text" value="{{room.beamer}}"></td>
+      <td>
+        <label class="truelabel" for="beamerTrue">True</label>
+        <input id="beamerTrue" type="radio" name="beamer" (change)="changeBeamerTrue()"
+               [checked]="checkForBeamer(true)">
+      </td>
+      <td>
+        <label for="beamerFalse">False</label>
+        <input id="beamerFalse" type="radio" name="beamer" (change)="changeBeamerFalse()"
+               [checked]="checkForBeamer(false)">
+      </td>
     </tr>
     <tr *ngIf="occupiedPresent()">
       <td>Occupied</td>
-      <td><input type="text" value="{{room.occupied}}"></td>
+      <td>
+        <label class="truelabel" for="occupiedTrue">True</label>
+        <input id="occupiedTrue" type="radio" name="occupied" (change)="changeOccupiedTrue()"
+               [checked]="checkForOccupied(true)">
+      </td>
+      <td>
+        <label for="occupiedFalse">False</label>
+        <input id="occupiedFalse" type="radio" name="occupied" (change)="changeOccupiedFalse()"
+               [checked]="checkForOccupied(false)">
+      </td>
     </tr>
     <tr *ngIf="crowdPresent()">
       <td>Crowd</td>
-      <td><input type="text" value="{{room.crowd}}"></td>
+      <td><input class="textinput" type="text" value="{{room.crowd}}"></td>
     </tr>
   </table>
 </form>
