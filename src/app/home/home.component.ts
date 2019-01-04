@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
   public colorOccupied;
 
   public timeout;
+  public reservationTimeout;
 
   constructor(private roomService: RoomService) {
   }
@@ -81,6 +82,7 @@ export class HomeComponent implements OnInit {
     this.colorOccupied = '#ff0000';
 
     this.timeout = null;
+    this.reservationTimeout = null;
   }
 
   // add(): void {
@@ -111,7 +113,7 @@ export class HomeComponent implements OnInit {
     // this.roomClicked = !this.roomClicked;
     clearTimeout(this.timeout);
     this.currentRoom = this.rooms[currentRoomIndex];
-    this.timeout = setTimeout(() => this.currentRoom = null, 5000);
+    this.timeout = setTimeout(() => this.currentRoom = null, 10000);
   }
 
   checkIfSelected(): boolean {
@@ -150,8 +152,14 @@ export class HomeComponent implements OnInit {
   //   return Boolean(localStorage.getItem(cb));
   // }
 
-  buttonClicked(h: number): void {
-    this.currentRoom.hoursReserved = h;
+  buttonClicked(hours: number): void {
+    if (!this.currentRoom.occupied) {
+      this.currentRoom.hoursReserved = hours;
+      this.currentRoom.occupied = true;
+      this.reservationTimeout = setTimeout(() => this.currentRoom.occupied = false, hours * 1000);
+    } else {
+      this.currentRoom.hoursReserved = -1;
+    }
   }
 
   getRoomsId(): string {

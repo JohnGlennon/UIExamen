@@ -17,7 +17,6 @@ export class RoomComponent implements OnInit {
   @Input() beamerChecked;
   @Input() occupiedChecked;
   @Input() crowdChecked;
-  @Input() hoursReserved;
   @Input() colorNotOccupied;
   @Input() colorOccupied;
 
