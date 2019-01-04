@@ -41,7 +41,7 @@ export class RoomComponent implements OnInit {
   }
 
   pickClassForRoominfo(): string {
-    return this.currentRoom.width >= 30 ? 'roominfoHorizontal' : 'roominfoVertical';
+    return this.currentRoom.width >= 30 || this.listChecked ? 'roominfoHorizontal' : 'roominfoVertical';
   }
 
   setStyle(): Object {
