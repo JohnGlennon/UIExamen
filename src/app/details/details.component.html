@@ -1,27 +1,29 @@
 <h1>Room Details</h1>
 
-<form action="">
+<form>
   <table>
     <tr>
       <td>Name</td>
-      <td><input class="textinput" type="text" value="{{room.name}}"></td>
+      <td>
+        <input class="textinput" type="text" id="name" name="name" [(ngModel)]="room.name" required #name="ngModel">
+      </td>
     </tr>
     <tr>
       <td>Type</td>
       <td>
-        <select>
-          <option value="auditorium">Auditorium</option>
-          <option value="classroom">Classroom</option>
-          <option value="meetingroom">Meetingroom</option>
-          <option value="office">Office</option>
-          <option value="studyarea">Studyarea</option>
-          <option value="cafetaria">Cafetaria</option>
+        <select id="type" name="type" [(ngModel)]="room.type" required #type="ngModel">
+          <option value="Auditorium">Auditorium</option>
+          <option value="Classroom">Classroom</option>
+          <option value="Meetingroom">Meetingroom</option>
+          <option value="Office">Office</option>
+          <option value="Studyarea">Studyarea</option>
+          <option value="Cafetaria">Cafetaria</option>
         </select>
       </td>
     </tr>
     <tr>
       <td>Capacity</td>
-      <td><input class="textinput" type="text" value="{{room.capacity}}"></td>
+      <td><input class="textinput" type="number" id="capacity" name="capacity" [(ngModel)]="room.capacity" required #capacity="ngModel"></td>
     </tr>
     <br>
     <tr>
@@ -52,9 +54,10 @@
     </tr>
     <tr *ngIf="crowdPresent()">
       <td>Crowd</td>
-      <td><input class="textinput" type="text" value="{{room.crowd}}"></td>
+      <td><input class="textinput" type="number" id="crowd" name="crowd" [(ngModel)]="room.crowd" required #crowd="ngModel"></td>
     </tr>
   </table>
+  <button (click)="save()">Save</button>
+  <br>
+  <button routerLink="/home">Return to home</button>
 </form>
-<button (click)="save()">Save</button><br>
-<button routerLink="/home">Return to home</button>

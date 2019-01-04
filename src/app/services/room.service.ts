@@ -27,7 +27,6 @@ export class RoomService {
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
-    console.log(room);
     return this.http.post<Room>(this.roomsUrl, room, httpOptions);
   }
 }
