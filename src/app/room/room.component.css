@@ -43,8 +43,8 @@ img {
 }
 
 #rectangle div, #rectangle img {
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
 }
 
 .roominfoVertical div, .roominfoVertical img {
@@ -57,7 +57,7 @@ img {
 }
 
 #rectangle .name {
-  font-size: 2rem;
+  font-size: 1.5rem;
   max-width: 50px;
 }
 

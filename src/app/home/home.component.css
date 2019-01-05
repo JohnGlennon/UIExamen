@@ -1,14 +1,5 @@
 #viewchoice {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 40px;
-  left: 20px;
-  font-size: 1.5rem;
-  grid-area: toolbar;
-  float: left;
+  display: none;
 }
 
 #listoption {
@@ -48,6 +39,9 @@
 
 #mainsection {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 100px;
   grid-area: rooms;
 }
@@ -57,7 +51,9 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  margin: 100px;
+  margin-top: 100px;
+  margin-left: 10vw;
+  margin-right: 10vw;
   grid-area: rooms;
 }
 
@@ -67,7 +63,6 @@
 }
 
 #filterIfList {
-  margin-top: 100px;
   grid-area: rooms;
 }
 
@@ -84,8 +79,9 @@ td input {
 }
 
 #settingsIfList {
-  margin-top: 100px;
-  margin-right: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 2vw;
   grid-area: rooms;
   display: inline-flex;
   flex-direction: column;
@@ -125,4 +121,33 @@ label {
   font-size: 1.5rem;
   border: 2px solid black;
   background-color: #09fff8;
+}
+
+@media screen and (min-width: 540px) {
+  #viewchoice {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    font-size: 1.5rem;
+    grid-area: toolbar;
+    float: left;
+  }
+
+  #mainsection {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  #filterIfList {
+    margin-top: 100px;
+  }
+
+  #settingsIfList {
+    margin-top: 100px;
+  }
 }

@@ -91,18 +91,6 @@ export class HomeComponent implements OnInit {
     this.reservationTimeout = null;
   }
 
-  // add(): void {
-  //   if (this.roomIndex < this.roomSet.length) {
-  //     this.rooms.push(this.roomSet[this.roomIndex]);
-  //     this.roomIndex++;
-  //   }
-  // }
-  //
-  // remove(): void {
-  //   this.rooms.pop();
-  //   this.roomIndex--;
-  // }
-
   floorDown(): void {
     if (this.currentFloor > 0) {
       this.currentFloor--;
