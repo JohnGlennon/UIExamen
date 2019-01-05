@@ -95,7 +95,6 @@ export class RoomComponent implements OnInit {
   }
 
   checkForFloor(): boolean {
-    return (this.pickId() === 'rectangle' && this.currentFloor === this.currentRoom.floor)
-      || this.pickId() === 'shape';
+    return this.currentFloor === this.currentRoom.floor;
   }
 }

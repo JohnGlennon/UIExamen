@@ -35,8 +35,8 @@ export class InMemoryDataService implements InMemoryDbService {
         occupied: true,
         width: 30,
         height: 30,
-        x: 0,
-        y: 0
+        x: 5,
+        y: 15
       },
       {
         id: 2,
@@ -49,8 +49,8 @@ export class InMemoryDataService implements InMemoryDbService {
         crowd: 75,
         width: 30,
         height: 20,
-        x: 30,
-        y: 0
+        x: 5,
+        y: 5
       },
       {
         id: 3,
@@ -63,8 +63,8 @@ export class InMemoryDataService implements InMemoryDbService {
         occupied: true,
         width: 30,
         height: 20,
-        x: 60,
-        y: 0
+        x: 5,
+        y: 15
       },
       {
         id: 4,
@@ -76,8 +76,8 @@ export class InMemoryDataService implements InMemoryDbService {
         beamer: false,
         width: 30,
         height: 20,
-        x: 90,
-        y: 0
+        x: 5,
+        y: 5
       },
       {
         id: 5,
@@ -90,8 +90,8 @@ export class InMemoryDataService implements InMemoryDbService {
         occupied: true,
         width: 30,
         height: 10,
-        x: 120,
-        y: 0
+        x: 35,
+        y: 15
       },
       {
         id: 6,
@@ -104,8 +104,8 @@ export class InMemoryDataService implements InMemoryDbService {
         occupied: false,
         width: 30,
         height: 30,
-        x: 30,
-        y: 20
+        x: 5,
+        y: 15
       },
       {
         id: 7,
@@ -118,8 +118,8 @@ export class InMemoryDataService implements InMemoryDbService {
         occupied: true,
         width: 30,
         height: 30,
-        x: 60,
-        y: 20
+        x: 5,
+        y: 15
       },
       {
         id: 8,
@@ -132,8 +132,8 @@ export class InMemoryDataService implements InMemoryDbService {
         occupied: true,
         width: 20,
         height: 30,
-        x: 90,
-        y: 20
+        x: 5,
+        y: 25
       },
       {
         id: 9,
@@ -146,8 +146,8 @@ export class InMemoryDataService implements InMemoryDbService {
         occupied: false,
         width: 15,
         height: 30,
-        x: 110,
-        y: 20
+        x: 5,
+        y: 25
       },
       {
         id: 10,
@@ -160,8 +160,8 @@ export class InMemoryDataService implements InMemoryDbService {
         crowd: 100,
         width: 30,
         height: 10,
-        x: 120,
-        y: 10
+        x: 35,
+        y: 15
       },
       {
         id: 11,
@@ -174,8 +174,8 @@ export class InMemoryDataService implements InMemoryDbService {
         crowd: 100,
         width: 50,
         height: 20,
-        x: 30,
-        y: 50
+        x: 35,
+        y: 15
       }
     ];
     return {rooms};

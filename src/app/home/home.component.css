@@ -75,7 +75,7 @@
   grid-area: rooms;
   position: absolute;
   right: 20px;
-  top: 80%;
+  top: 30%;
   margin: 15px;
 }
 
@@ -96,7 +96,8 @@ td input {
   grid-area: rooms;
   display: inline-flex;
   flex-direction: column;
-  top: 60%;
+  top: 35%;
+  right: 20%;
 }
 
 #settingsIfList div, #settingsIfPlan div {
