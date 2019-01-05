@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {RoomService} from '../services/room.service';
-import DateTimeFormat = Intl.DateTimeFormat;
 
 @Component({
   selector: 'app-home',
@@ -164,8 +163,6 @@ export class HomeComponent implements OnInit {
       this.currentRoom.hoursReserved = hours;
       this.currentRoom.occupied = true;
       this.reservationTimeout = setTimeout(() => this.currentRoom.occupied = false, hours * 1000);
-    } else {
-      this.currentRoom.hoursReserved = -1;
     }
   }
 

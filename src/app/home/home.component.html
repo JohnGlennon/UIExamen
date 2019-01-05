@@ -46,7 +46,7 @@
       <button (click)="buttonClicked(2); roomOrSettingClicked()">2</button>
       <button (click)="buttonClicked(3); roomOrSettingClicked()">3</button>
       <p *ngIf="currentRoom.hoursReserved > 0">You reserved this room for {{currentRoom.hoursReserved}} hour(s)</p>
-      <p *ngIf="currentRoom.hoursReserved == -1">This room is occupied</p>
+      <p *ngIf="currentRoom.occupied">This room is occupied</p>
     </div>
     <button routerLink="/api/rooms/{{currentRoom.id}}" *ngIf="checkIfSelected()" (click)="roomOrSettingClicked()"
             id="details">Details
