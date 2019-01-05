@@ -5,3 +5,8 @@ app-root {
   grid-template-rows: 80px auto;
   grid-template-areas: "toolbar toolbar" "rooms rooms";
 }
+
+body {
+  background-color: #fffce1;
+  font-family: Arial, serif;
+}

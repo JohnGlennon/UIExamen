@@ -15,6 +15,8 @@
   border: 2px solid black;
   text-align: center;
   background-color: #6293ff;
+  -webkit-filter: grayscale(100%);
+  transition: all 0.2s ease;
 }
 
 #navigate button img {
@@ -24,6 +26,7 @@
 
 #navigate button:hover, #reservationSetting button:hover, #details:hover {
   border: 2px solid #e8e800;
+  -webkit-filter: grayscale(0%);
 }
 
 #navigate button:active, #reservationSetting button:active, #details:active {
@@ -76,6 +79,7 @@
 
 td input {
   margin-left: 50px;
+  margin-bottom: 10px;
 }
 
 #settingsIfList {
