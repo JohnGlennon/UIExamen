@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RoomService} from '../services/room.service';
+import DateTimeFormat = Intl.DateTimeFormat;
 
 @Component({
   selector: 'app-home',
@@ -119,7 +120,7 @@ export class HomeComponent implements OnInit {
 
   roomOrSettingClicked(): void {
     clearTimeout(this.timeout);
-    this.timeout = setTimeout(() => this.currentRoom = null, 5000);
+    this.timeout = setTimeout(() => this.currentRoom = null, 7000);
   }
 
   checkIfSelected(): boolean {

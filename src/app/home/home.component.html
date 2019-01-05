@@ -38,6 +38,7 @@
       <input type="range" name="crowd" id="crowdSlider" (click)="roomOrSettingClicked()" [(ngModel)]="currentRoom.crowd"
              min="0"
              max="{{currentRoom.capacity}}"/>
+      <p><strong>Amount: {{currentRoom.crowd}}</strong></p>
     </div>
     <div *ngIf="checkForReservation()" id="reservationSetting">
       <h4>Reservation</h4>
