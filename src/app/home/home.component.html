@@ -35,7 +35,8 @@
   <section [id]="getSettingsId()">
     <div *ngIf="checkForCrowd()" id="crowdSetting">
       <label for="crowdSlider"><strong>Crowd</strong></label>
-      <input type="range" name="crowd" id="crowdSlider" (click)="roomOrSettingClicked()" [(ngModel)]="currentRoom.crowd" min="0"
+      <input type="range" name="crowd" id="crowdSlider" (click)="roomOrSettingClicked()" [(ngModel)]="currentRoom.crowd"
+             min="0"
              max="{{currentRoom.capacity}}"/>
     </div>
     <div *ngIf="checkForReservation()" id="reservationSetting">
@@ -46,7 +47,9 @@
       <p *ngIf="currentRoom.hoursReserved > 0">You reserved this room for {{currentRoom.hoursReserved}} hour(s)</p>
       <p *ngIf="currentRoom.hoursReserved == -1">This room is occupied</p>
     </div>
-    <button routerLink="/api/rooms/{{currentRoom.id}}" *ngIf="checkIfSelected()" (click)="roomOrSettingClicked()" id="details">Details</button>
+    <button routerLink="/api/rooms/{{currentRoom.id}}" *ngIf="checkIfSelected()" (click)="roomOrSettingClicked()"
+            id="details">Details
+    </button>
   </section>
 
   <section [id]="getFilterId()" *ngIf="rooms.length > 0">
@@ -54,11 +57,11 @@
     <table id="attributes">
       <tr>
         <td>Name</td>
-        <td><input id="cbName" type="checkbox" [(ngModel)]="nameChecked" checked></td>
+        <td><input id="cbName" type="checkbox" [(ngModel)]="nameChecked"></td>
       </tr>
       <tr>
         <td>Type</td>
-        <td><input id="cbType" type="checkbox" [(ngModel)]="typeChecked" checked></td>
+        <td><input id="cbType" type="checkbox" [(ngModel)]="typeChecked"></td>
       </tr>
       <tr>
         <td>Capacity</td>
@@ -70,11 +73,11 @@
       </tr>
       <tr>
         <td>Occupied</td>
-        <td><input id="cbOccupied" type="checkbox" [(ngModel)]="occupiedChecked" checked></td>
+        <td><input id="cbOccupied" type="checkbox" [(ngModel)]="occupiedChecked"></td>
       </tr>
       <tr>
         <td>Crowd</td>
-        <td><input id="cbCrowd" type="checkbox" [(ngModel)]="crowdChecked" checked></td>
+        <td><input id="cbCrowd" type="checkbox" [(ngModel)]="crowdChecked"></td>
       </tr>
       <tr>
         <td>Color not occupied</td>

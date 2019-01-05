@@ -8,7 +8,7 @@ import {RoomService} from '../services/room.service';
 })
 export class HomeComponent implements OnInit {
 
-  private rooms = [];
+  public rooms = [];
   // roomIndex = 0;
 
   error = false;
@@ -20,12 +20,12 @@ export class HomeComponent implements OnInit {
 
   // public roomClicked;
 
-  public nameChecked;
-  public typeChecked;
-  public capacityChecked;
-  public beamerChecked;
-  public occupiedChecked;
-  public crowdChecked;
+  public nameChecked: boolean;
+  public typeChecked: boolean;
+  public capacityChecked: boolean;
+  public beamerChecked: boolean;
+  public occupiedChecked: boolean;
+  public crowdChecked: boolean;
 
   public colorNotOccupied;
   public colorOccupied;
@@ -57,6 +57,19 @@ export class HomeComponent implements OnInit {
     this.currentFloor = 0;
     this.currentRoom = null;
 
+    // localStorage.setItem('nameChecked', 'true');
+    // console.log(Boolean(localStorage.getItem('nameChecked')));
+    // localStorage.setItem('typeChecked', 'true');
+    // console.log(Boolean(localStorage.getItem('typeChecked')));
+    // localStorage.setItem('capacityChecked', 'false');
+    // console.log(Boolean(localStorage.getItem('capacityChecked')));
+    // localStorage.setItem('beamerChecked', 'false');
+    // console.log(Boolean(localStorage.getItem('beamerChecked')));
+    // localStorage.setItem('occupiedChecked', 'true');
+    // console.log(Boolean(localStorage.getItem('occupiedChecked')));
+    // localStorage.setItem('crowdChecked', 'true');
+    // console.log(Boolean(localStorage.getItem('crowdChecked')));
+
     this.nameChecked = true;
     this.typeChecked = true;
     this.capacityChecked = false;
@@ -64,19 +77,12 @@ export class HomeComponent implements OnInit {
     this.occupiedChecked = true;
     this.crowdChecked = true;
 
-    // this.nameChecked = localStorage.getItem('nameChecked');
-    // this.typeChecked = localStorage.getItem('typeChecked');
-    // this.capacityChecked = localStorage.getItem('capacityChecked');
-    // this.beamerChecked = localStorage.getItem('beamerChecked');
-    // this.occupiedChecked = localStorage.getItem('occupiedChecked');
-    // this.crowdChecked = localStorage.getItem('crowdChecked');
-
-    // localStorage.setItem('nameChecked', this.nameChecked);
-    // localStorage.setItem('typeChecked', this.typeChecked);
-    // localStorage.setItem('capacityChecked', this.capacityChecked);
-    // localStorage.setItem('beamerChecked', this.beamerChecked);
-    // localStorage.setItem('occupiedChecked', this.occupiedChecked);
-    // localStorage.setItem('crowdChecked', this.crowdChecked);
+    // this.nameChecked = Boolean(localStorage.getItem('nameChecked'));
+    // this.typeChecked = Boolean(localStorage.getItem('typeChecked'));
+    // this.capacityChecked = Boolean(localStorage.getItem('capacityChecked'));
+    // this.beamerChecked = Boolean(localStorage.getItem('beamerChecked'));
+    // this.occupiedChecked = Boolean(localStorage.getItem('occupiedChecked'));
+    // this.crowdChecked = Boolean(localStorage.getItem('crowdChecked'));
 
     this.colorNotOccupied = '#00ff00';
     this.colorOccupied = '#ff0000';
@@ -176,4 +182,27 @@ export class HomeComponent implements OnInit {
   getSettingsId(): string {
     return this.listChecked ? 'settingsIfList' : 'settingsIfPlan';
   }
+
+  // changeCheckBox(filter: string): void {
+  //   switch (filter) {
+  //     case 'nameChecked':
+  //       localStorage.setItem(filter, String(this.nameChecked));
+  //       break;
+  //     case 'typeChecked':
+  //       localStorage.setItem(filter, String(this.typeChecked));
+  //       break;
+  //     case 'capacityChecked':
+  //       localStorage.setItem(filter, String(this.capacityChecked));
+  //       break;
+  //     case 'beamerChecked':
+  //       localStorage.setItem(filter, String(this.beamerChecked));
+  //       break;
+  //     case 'occupiedChecked':
+  //       localStorage.setItem(filter, String(this.occupiedChecked));
+  //       break;
+  //     case 'crowdChecked':
+  //       localStorage.setItem(filter, String(this.crowdChecked));
+  //       break;
+  //   }
+  // }
 }
