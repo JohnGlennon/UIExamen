@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   error = false;
 
+  private maxFloor;
   public currentFloor;
   public currentRoom;
 
@@ -54,6 +55,9 @@ export class HomeComponent implements OnInit {
     this.listChecked = true;
 
     // this.roomClicked = false;
+
+    this.maxFloor = 0;
+
     this.currentFloor = 0;
     this.currentRoom = null;
 
@@ -98,7 +102,12 @@ export class HomeComponent implements OnInit {
   }
 
   floorUp(): void {
-    if (this.currentFloor < 5) {
+    for (const room of this.rooms) {
+      if (room.floor > this.maxFloor) {
+        this.maxFloor = room.floor;
+      }
+    }
+    if (this.currentFloor < this.maxFloor) {
       this.currentFloor++;
     }
   }
