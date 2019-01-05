@@ -46,7 +46,7 @@ export class RoomComponent implements OnInit {
   setStyle(): Object {
     return {
       'background-color': this.getColor(),
-      'width': this.listChecked ? '80vw' : this.currentRoom.width * 10 + 'px',
+      'width': this.listChecked ? '43vw' : this.currentRoom.width * 10 + 'px',
       'max-width': this.listChecked ? '40rem' : '',
       'height': this.listChecked ? '100px' : this.currentRoom.height * 10 + 'px',
       'margin-left': this.listChecked ? '' : this.currentRoom.x * 10 + 'px',
