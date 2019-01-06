@@ -26,11 +26,11 @@ export class DetailsComponent implements OnInit {
   }
 
   occupiedPresent(): boolean {
-    return this.room.occupied != null;
+    return this.room.type === 'Auditorium' || this.room.type === 'Classroom' || this.room.type === 'Meetingroom';
   }
 
   crowdPresent(): boolean {
-    return this.room.crowd != null;
+    return this.room.type === 'Cafetaria' || this.room.type === 'Studyarea';
   }
 
   changeBeamerTrue(): void {
