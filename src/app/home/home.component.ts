@@ -9,7 +9,6 @@ import {RoomService} from '../services/room.service';
 export class HomeComponent implements OnInit {
 
   public rooms = [];
-  // roomIndex = 0;
 
   error = false;
 
@@ -18,8 +17,6 @@ export class HomeComponent implements OnInit {
   public currentRoom;
 
   public listChecked;
-
-  // public roomClicked;
 
   public nameChecked: boolean;
   public typeChecked: boolean;
@@ -38,10 +35,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // for (let i = 0; i < this.roomSet.length; i++) {
-    //   this.rooms.push(this.roomSet[i]);
-    // }
-
     this.roomService.getRooms().subscribe(
       rooms => {
         this.rooms = rooms;
@@ -54,32 +47,10 @@ export class HomeComponent implements OnInit {
 
     this.listChecked = true;
 
-    // this.roomClicked = false;
-
     this.maxFloor = 0;
 
     this.currentFloor = 0;
     this.currentRoom = null;
-
-    // localStorage.setItem('nameChecked', 'true');
-    // console.log(localStorage.getItem('nameChecked'));
-    // localStorage.setItem('typeChecked', 'true');
-    // console.log(localStorage.getItem('typeChecked'));
-    // localStorage.setItem('capacityChecked', 'false');
-    // console.log(localStorage.getItem('capacityChecked'));
-    // localStorage.setItem('beamerChecked', 'false');
-    // console.log(localStorage.getItem('beamerChecked'));
-    // localStorage.setItem('occupiedChecked', 'true');
-    // console.log(localStorage.getItem('occupiedChecked'));
-    // localStorage.setItem('crowdChecked', 'true');
-    // console.log(localStorage.getItem('crowdChecked'));
-
-    // this.nameChecked = true;
-    // this.typeChecked = true;
-    // this.capacityChecked = false;
-    // this.beamerChecked = false;
-    // this.occupiedChecked = true;
-    // this.crowdChecked = true;
 
     this.nameChecked = this.stringToBoolean(localStorage.getItem('nameChecked'));
     this.typeChecked = this.stringToBoolean(localStorage.getItem('typeChecked'));
@@ -121,7 +92,6 @@ export class HomeComponent implements OnInit {
   }
 
   setRoomClicked(currentRoomIndex): void {
-    // this.roomClicked = !this.roomClicked;
     this.currentRoom = this.rooms[currentRoomIndex];
   }
 
@@ -161,10 +131,6 @@ export class HomeComponent implements OnInit {
       this.listChecked = false;
     }
   }
-
-  // getCheckBox(cb: string): boolean {
-  //   return Boolean(localStorage.getItem(cb));
-  // }
 
   buttonClicked(hours: number): void {
     if (!this.currentRoom.occupied) {

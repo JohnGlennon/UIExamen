@@ -9,7 +9,6 @@ import {Room} from '../model/room';
 })
 export class RoomService {
   private roomsUrl = 'api/rooms';  // URL to web api (in-memory data service)
-  // private roomsUrl = 'http://localhost:3000/rooms';  // URL to web api (node.js data service)
 
   constructor(private http: HttpClient) {
   }
