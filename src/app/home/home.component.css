@@ -119,12 +119,25 @@ label {
 }
 
 #details {
+  border-radius: 15%;
   margin-left: 20px;
   width: 100px;
   height: 30px;
   font-size: 1.5rem;
   border: 2px solid black;
   background-color: #09fff8;
+  -webkit-filter: grayscale(100%);
+  transition: all 0.2s ease;
+}
+
+#details:hover {
+  -webkit-filter: grayscale(0%);
+}
+
+.colorinput {
+  width: 35px;
+  height: 35px;
+  border-radius: 20%;
 }
 
 @media screen and (min-width: 540px) {
