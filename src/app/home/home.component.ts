@@ -62,37 +62,45 @@ export class HomeComponent implements OnInit {
     this.currentRoom = null;
 
     // localStorage.setItem('nameChecked', 'true');
-    // console.log(Boolean(localStorage.getItem('nameChecked')));
+    // console.log(localStorage.getItem('nameChecked'));
     // localStorage.setItem('typeChecked', 'true');
-    // console.log(Boolean(localStorage.getItem('typeChecked')));
+    // console.log(localStorage.getItem('typeChecked'));
     // localStorage.setItem('capacityChecked', 'false');
-    // console.log(Boolean(localStorage.getItem('capacityChecked')));
+    // console.log(localStorage.getItem('capacityChecked'));
     // localStorage.setItem('beamerChecked', 'false');
-    // console.log(Boolean(localStorage.getItem('beamerChecked')));
+    // console.log(localStorage.getItem('beamerChecked'));
     // localStorage.setItem('occupiedChecked', 'true');
-    // console.log(Boolean(localStorage.getItem('occupiedChecked')));
+    // console.log(localStorage.getItem('occupiedChecked'));
     // localStorage.setItem('crowdChecked', 'true');
-    // console.log(Boolean(localStorage.getItem('crowdChecked')));
+    // console.log(localStorage.getItem('crowdChecked'));
 
-    this.nameChecked = true;
-    this.typeChecked = true;
-    this.capacityChecked = false;
-    this.beamerChecked = false;
-    this.occupiedChecked = true;
-    this.crowdChecked = true;
+    // this.nameChecked = true;
+    // this.typeChecked = true;
+    // this.capacityChecked = false;
+    // this.beamerChecked = false;
+    // this.occupiedChecked = true;
+    // this.crowdChecked = true;
 
-    // this.nameChecked = Boolean(localStorage.getItem('nameChecked'));
-    // this.typeChecked = Boolean(localStorage.getItem('typeChecked'));
-    // this.capacityChecked = Boolean(localStorage.getItem('capacityChecked'));
-    // this.beamerChecked = Boolean(localStorage.getItem('beamerChecked'));
-    // this.occupiedChecked = Boolean(localStorage.getItem('occupiedChecked'));
-    // this.crowdChecked = Boolean(localStorage.getItem('crowdChecked'));
+    this.nameChecked = this.stringToBoolean(localStorage.getItem('nameChecked'));
+    this.typeChecked = this.stringToBoolean(localStorage.getItem('typeChecked'));
+    this.capacityChecked = this.stringToBoolean(localStorage.getItem('capacityChecked'));
+    this.beamerChecked = this.stringToBoolean(localStorage.getItem('beamerChecked'));
+    this.occupiedChecked = this.stringToBoolean(localStorage.getItem('occupiedChecked'));
+    this.crowdChecked = this.stringToBoolean(localStorage.getItem('crowdChecked'));
 
     this.colorNotOccupied = '#00ff00';
     this.colorOccupied = '#ff0000';
 
     this.timeout = null;
     this.reservationTimeout = null;
+  }
+
+  private stringToBoolean(s: string): boolean {
+    return s === 'true';
+  }
+
+  private booleanToString(b: boolean): string {
+    return b ? 'true' : 'false';
   }
 
   floorDown(): void {
@@ -178,26 +186,26 @@ export class HomeComponent implements OnInit {
     return this.listChecked ? 'settingsIfList' : 'settingsIfPlan';
   }
 
-  // changeCheckBox(filter: string): void {
-  //   switch (filter) {
-  //     case 'nameChecked':
-  //       localStorage.setItem(filter, String(this.nameChecked));
-  //       break;
-  //     case 'typeChecked':
-  //       localStorage.setItem(filter, String(this.typeChecked));
-  //       break;
-  //     case 'capacityChecked':
-  //       localStorage.setItem(filter, String(this.capacityChecked));
-  //       break;
-  //     case 'beamerChecked':
-  //       localStorage.setItem(filter, String(this.beamerChecked));
-  //       break;
-  //     case 'occupiedChecked':
-  //       localStorage.setItem(filter, String(this.occupiedChecked));
-  //       break;
-  //     case 'crowdChecked':
-  //       localStorage.setItem(filter, String(this.crowdChecked));
-  //       break;
-  //   }
-  // }
+  changeCheckBox(filter: string): void {
+    switch (filter) {
+      case 'nameChecked':
+        localStorage.setItem(filter, this.booleanToString(this.nameChecked));
+        break;
+      case 'typeChecked':
+        localStorage.setItem(filter, this.booleanToString(this.typeChecked));
+        break;
+      case 'capacityChecked':
+        localStorage.setItem(filter, this.booleanToString(this.capacityChecked));
+        break;
+      case 'beamerChecked':
+        localStorage.setItem(filter, this.booleanToString(this.beamerChecked));
+        break;
+      case 'occupiedChecked':
+        localStorage.setItem(filter, this.booleanToString(this.occupiedChecked));
+        break;
+      case 'crowdChecked':
+        localStorage.setItem(filter, this.booleanToString(this.crowdChecked));
+        break;
+    }
+  }
 }

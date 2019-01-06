@@ -58,27 +58,27 @@
     <table id="attributes">
       <tr>
         <td>Name</td>
-        <td><input id="cbName" type="checkbox" [(ngModel)]="nameChecked"></td>
+        <td><input id="cbName" type="checkbox" [(ngModel)]="nameChecked" (change)="changeCheckBox('nameChecked')"></td>
       </tr>
       <tr>
         <td>Type</td>
-        <td><input id="cbType" type="checkbox" [(ngModel)]="typeChecked"></td>
+        <td><input id="cbType" type="checkbox" [(ngModel)]="typeChecked" (change)="changeCheckBox('typeChecked')"></td>
       </tr>
       <tr>
         <td>Capacity</td>
-        <td><input id="cbCapacity" type="checkbox" [(ngModel)]="capacityChecked"></td>
+        <td><input id="cbCapacity" type="checkbox" [(ngModel)]="capacityChecked" (change)="changeCheckBox('capacityChecked')"></td>
       </tr>
       <tr>
         <td>Beamer</td>
-        <td><input id="cbBeamer" type="checkbox" [(ngModel)]="beamerChecked"></td>
+        <td><input id="cbBeamer" type="checkbox" [(ngModel)]="beamerChecked" (change)="changeCheckBox('beamerChecked')"></td>
       </tr>
       <tr>
         <td>Occupied</td>
-        <td><input id="cbOccupied" type="checkbox" [(ngModel)]="occupiedChecked"></td>
+        <td><input id="cbOccupied" type="checkbox" [(ngModel)]="occupiedChecked" (change)="changeCheckBox('occupiedChecked')"></td>
       </tr>
       <tr>
         <td>Crowd</td>
-        <td><input id="cbCrowd" type="checkbox" [(ngModel)]="crowdChecked"></td>
+        <td><input id="cbCrowd" type="checkbox" [(ngModel)]="crowdChecked" (change)="changeCheckBox('crowdChecked')"></td>
       </tr>
       <tr>
         <td>Color not occupied</td>
